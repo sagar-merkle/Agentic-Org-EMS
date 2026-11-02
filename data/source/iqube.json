@@ -1,0 +1,1152 @@
+{
+  "meta": {
+    "source_document": "TVS_iQube_Specification.pdf",
+    "source_title": "11_TVS iQube_Spec Sheet Leaflet_A4_13-07-2026",
+    "brand": "TVS",
+    "model_family": "iQube",
+    "segment": "Electric scooter",
+    "market": "India",
+    "tagline": "India's Favourite Family EV",
+    "range_standard": "IDC",
+    "currency": "INR",
+    "prices_included": true,
+    "variant_count": 6,
+    "extracted_on": "2026-09-01",
+    "notes": [
+      "All figures are as printed on the TVS leaflet. No pricing is present in the source document.",
+      "IDC range is a certification-cycle figure, not a real-world range.",
+      "swatch_hex_approx values were sampled from the leaflet artwork for UI display only and are not official TVS colour codes. They are null for colours with no image in the source."
+    ],
+    "source_anomalies": [
+      "MillionR Edition acceleration is printed as '4.2 sv'; parsed as 4.2 s (stray character).",
+      "The Hill Hold row ticks only the iQube 3.1 kWh, even though the leaflet cover promotes 'Smart Hill Hold' as a headline feature. Recorded as printed - verify against TVS before using in a customer-facing build.",
+      "The 2.3 kWh is the only variant with a drum front brake; all others use a 220 mm front disc.",
+      "The Brakes cell prints two unlabelled values. front_brake/rear_brake reflect the real iQube layout (front disc, rear drum); brakes_as_printed keeps the source order untouched.",
+      "RESOLVED: official TVS lists Rear Brake 130 mm Drum and Front Brake 220 mm Disc, confirming the front/rear assignment inferred from the leaflet.",
+      "RESOLVED: MillionR acceleration is 4.2 s on the official page, confirming '4.2 sv' was a typo.",
+      "Charging time disagrees between sources on three variants. Official TVS figures are used; leaflet values kept in charging_time_0_80_minutes_leaflet. 3.5 kWh and MillionR: leaflet 4h40m vs official 4h30m. ST 5.3: leaflet 4h30m vs official 4h18m.",
+      "Cluster size: leaflet says 12.77 cm for 3.5 kWh and MillionR, official says 12.7 cm. Both retained.",
+      "ST 5.3 certified battery capacity: leaflet says 4.8 kWh, official page says N/A. Leaflet value retained in certified_capacity_kwh.",
+      "UNRESOLVED - Hill Hold. Leaflet ticks only the 3.1 kWh. BikeWale lists Hill Assist on 3.1, S 4.7 and ST 5.3. The official TVS comparison page does not list the feature at all. Treat hill_hold as unverified.",
+      "Kerb weight differs between sources (BikeWale says 115 kg for the 2.3 kWh, official says 109 kg). Official used throughout."
+    ],
+    "enriched_on": "2026-09-01",
+    "sources": [
+      {
+        "name": "TVS iQube leaflet (uploaded PDF)",
+        "role": "Original parse: variant lineup, feature matrix, colours",
+        "url": null,
+        "date": "2026-07-13 artwork"
+      },
+      {
+        "name": "TVS Motor official variant comparison",
+        "role": "Authoritative specs; overrides the leaflet where they disagree",
+        "url": "https://www.tvsmotor.com/electric-scooters/tvs-iqube/variant-comparison",
+        "date": "fetched 2026-09-01"
+      },
+      {
+        "name": "BikeWale TVS iQube",
+        "role": "Ex-showroom prices, warranty, BaaS, owner-reported range",
+        "url": "https://www.bikewale.com/tvs-bikes/iqube/",
+        "date": "2026-08-31"
+      },
+      {
+        "name": "ZigWheels iQube on-road price Pune",
+        "role": "Pune RTO and insurance datapoints used to build the estimate",
+        "url": "https://www.zigwheels.com/tvs-bikes/iqube-electric/on-road-price-pune/",
+        "date": "Aug 2026"
+      },
+      {
+        "name": "Maharashtra EV Policy 2025-2030 coverage",
+        "role": "Confirms 100% road tax and registration fee waiver for EVs",
+        "url": null,
+        "date": "2026"
+      }
+    ],
+    "pricing_model": {
+      "note": "Pune on-road is computed, not scraped. No aggregator lists all six variants for Pune, and those that do quote Pune disagree with each other by up to Rs 9,000 on the same variant.",
+      "formula": "on_road = ex_showroom + rto_and_other_charges + insurance",
+      "road_tax_inr": 0,
+      "registration_fee_inr": 0,
+      "road_tax_reason": "Maharashtra EV Policy 2025-2030 waives road tax and registration fee 100% for electric vehicles registered before 31 Mar 2030",
+      "rto_and_other_charges_inr": 1178,
+      "rto_composition": "HSRP, temporary registration, smart card",
+      "insurance_band_pct_of_ex_showroom": [
+        0.037,
+        0.055
+      ],
+      "insurance_reason": "Observed Pune quotes ranged 3.7%-5.5% of ex-showroom depending on plan (basic vs comprehensive with add-ons)",
+      "excluded": [
+        "dealer handling charges",
+        "accessories",
+        "extended warranty",
+        "PM E-Drive central incentive",
+        "exchange or festive offers",
+        "Maharashtra early-bird incentive"
+      ],
+      "confidence": "Directional. Use for demo display, not for quoting a customer."
+    }
+  },
+  "common_specs": {
+    "charger_type": "Portable Charger",
+    "headlamp_and_taillamp": "LED integrated with TSL",
+    "parking_assist": "Reverse / Forward",
+    "ground_clearance_mm": 157,
+    "tyre_type": "Tubeless",
+    "front_suspension": "Telescopic",
+    "riding_modes": [
+      "Eco",
+      "Power"
+    ],
+    "frame_type": "Tubular Structure",
+    "length_mm": 1805,
+    "width_mm": 645,
+    "height_mm": 1140,
+    "seat_height_mm": 770,
+    "wheelbase_mm": 1301,
+    "gradeability_deg": 10,
+    "carrying_capacity_kg": 130,
+    "water_wading_limit_mm": 150,
+    "motor_type": "BLDC hub mounted",
+    "rated_power_kw": 3.0,
+    "peak_torque_nm": 140,
+    "rated_torque_nm": 33,
+    "ip_rating": "IP67",
+    "battery_type": "Lithium ion",
+    "rated_voltage_v": 52,
+    "battery_safety": "BMS controlled",
+    "charger_output_w": 950,
+    "charger_type_official": "Offboard portable charger",
+    "charger_included_in_price": true,
+    "spike_protection": true,
+    "braking_system": "SBT (synchronised braking)",
+    "wheel_type": "Alloy",
+    "wheel_size_inch": 12,
+    "tyre_size_front": "90/90-12",
+    "tyre_size_rear": "90/90-12",
+    "tyre_pressure_psi": {
+      "rider_only": {
+        "front": 24,
+        "rear": 32
+      },
+      "with_pillion": {
+        "front": 24,
+        "rear": 36
+      }
+    },
+    "cluster_resolution": "800 x 480",
+    "cluster_brightness_lux": 1000,
+    "number_plate_lamp": "LED",
+    "signature_position_lamp": "LED",
+    "illuminating_logo": "LED",
+    "eco_mode_top_speed_kmph": 47,
+    "battery_warranty": "3 years or 50,000 km",
+    "motor_warranty": "3 years",
+    "baas_option": "Battery as a Service available, up to Rs 59,999"
+  },
+  "feature_labels": {
+    "water_and_dust_resistance": "Water and Dust Resistance",
+    "regenerative_braking": "Regenerative Braking",
+    "hmi_joystick": "HMI Joystick",
+    "voice_assist": "Voice Assist",
+    "bluetooth_connectivity": "Bluetooth Connectivity",
+    "turn_by_turn_navigation": "Turn by Turn Navigation",
+    "call_and_sms_alerts": "Call and SMS Alerts",
+    "distance_to_empty": "Distance to Empty",
+    "music_control": "Music Control",
+    "tpms": "TPMS",
+    "geofencing": "Geofencing",
+    "anti_theft_alert": "Anti Theft Alert",
+    "usb_mobile_charger": "USB Mobile Charger",
+    "crash_and_fall_alert": "Crash and Fall Alert",
+    "hill_hold": "Hill Hold",
+    "incognito_mode": "Incognito Mode",
+    "flip_key_with_led": "Flip Key with LED Light",
+    "side_stand_indication": "Side Stand Indication",
+    "parking_brake_lever": "Parking Brake Lever",
+    "pleasant_horn_tone": "Pleasant Horn Tone",
+    "live_indicator_status": "Live Indicator Status"
+  },
+  "variants": [
+    {
+      "id": "iqube-2-3-kwh",
+      "name": "iQube 2.3 kWh",
+      "trim": "iQube",
+      "position": 1,
+      "image": "images/iqube-2-3-kwh.png",
+      "highlights": {
+        "battery_kwh": 2.3,
+        "idc_range_km": 114,
+        "top_speed_kmph": 68
+      },
+      "battery": {
+        "rated_capacity_kwh": 2.3,
+        "certified_capacity_kwh": 2.1,
+        "charger_type": "Portable Charger",
+        "charging_time_0_80_soc": "2 h 50 m",
+        "charging_time_0_80_minutes": 170,
+        "battery_type": "Lithium ion",
+        "rated_voltage_v": 52,
+        "safety": "BMS controlled",
+        "ip_rating": "IP67",
+        "charger_output_w": 950,
+        "charger_included_in_price": true,
+        "spike_protection": true,
+        "charging_time_0_80_minutes_leaflet": 170,
+        "certified_capacity_kwh_official": 2.1,
+        "source_disagreement": false
+      },
+      "performance": {
+        "idc_range_km": 114,
+        "top_speed_kmph": 68,
+        "acceleration_0_40_kmph_s": 4.7,
+        "peak_power_kw": 3.68,
+        "riding_modes": [
+          "Eco",
+          "Power"
+        ],
+        "motor_type": "BLDC hub mounted",
+        "rated_power_kw": 3.0,
+        "peak_torque_nm": 140,
+        "rated_torque_nm": 33,
+        "gradeability_deg": 10,
+        "water_wading_limit_mm": 150,
+        "eco_mode_top_speed_kmph": 47,
+        "estimated_real_world_range_km": 95,
+        "real_world_range_basis": "83% of IDC, derived from one owner-reported datapoint; indicative only"
+      },
+      "chassis": {
+        "front_brake": "130 mm Drum",
+        "rear_brake": "130 mm Drum",
+        "brakes_as_printed": [
+          "130 mm Drum",
+          "130 mm Drum"
+        ],
+        "front_suspension": "Telescopic",
+        "rear_suspension": "Hydraulic twin tube shock absorber",
+        "rear_suspension_adjustable": false,
+        "ground_clearance_mm": 157,
+        "tyre_type": "Tubeless",
+        "storage_litres": 30.0,
+        "kerb_weight_kg": 109.0,
+        "frame_type": "Tubular Structure",
+        "seat_height_mm": 770,
+        "wheelbase_mm": 1301,
+        "length_mm": 1805,
+        "width_mm": 645,
+        "height_mm": 1140,
+        "braking_system": "SBT (synchronised braking)",
+        "tyre_size_front": "90/90-12",
+        "tyre_size_rear": "90/90-12",
+        "wheel_size_inch": 12,
+        "carrying_capacity_kg": 130
+      },
+      "display": {
+        "cluster_size_cm": 12.7,
+        "cluster_size_inches": 5.0,
+        "cluster_type": "LCD Display",
+        "touchscreen": false,
+        "cluster_size_cm_official": 12.7,
+        "resolution": "800 x 480",
+        "brightness_lux": 1000,
+        "day_night_mode": "Automatic",
+        "ota_updates": [
+          "Telematics",
+          "MCU",
+          "VCU",
+          "BMS"
+        ]
+      },
+      "lighting": {
+        "headlamp_and_taillamp": "LED integrated with TSL",
+        "parking_assist": "Reverse / Forward",
+        "number_plate_lamp": "LED",
+        "signature_position_lamp": "LED",
+        "illuminating_logo": "LED"
+      },
+      "colours": [
+        {
+          "name": "Pearl White",
+          "slug": "pearl-white",
+          "swatch_hex_approx": "#E8E9ED"
+        },
+        {
+          "name": "Walnut Brown",
+          "slug": "walnut-brown",
+          "swatch_hex_approx": "#725E5C"
+        },
+        {
+          "name": "Titanium Grey",
+          "slug": "titanium-grey",
+          "swatch_hex_approx": "#9399A6"
+        }
+      ],
+      "features": {
+        "water_and_dust_resistance": true,
+        "regenerative_braking": true,
+        "hmi_joystick": false,
+        "voice_assist": false,
+        "bluetooth_connectivity": true,
+        "turn_by_turn_navigation": true,
+        "call_and_sms_alerts": true,
+        "distance_to_empty": true,
+        "music_control": false,
+        "tpms": false,
+        "geofencing": true,
+        "anti_theft_alert": true,
+        "usb_mobile_charger": true,
+        "crash_and_fall_alert": true,
+        "hill_hold": false,
+        "incognito_mode": false,
+        "flip_key_with_led": false,
+        "side_stand_indication": true,
+        "parking_brake_lever": true,
+        "pleasant_horn_tone": true,
+        "live_indicator_status": true
+      },
+      "feature_count": 14,
+      "ownership": {
+        "battery_warranty": "3 years or 50,000 km",
+        "motor_warranty": "3 years",
+        "baas_available": true,
+        "baas_max_inr": 59999,
+        "running_cost_per_km_inr": 0.2
+      },
+      "pricing": {
+        "currency": "INR",
+        "ex_showroom_inr": 119250,
+        "ex_showroom_basis": "Average across India, BikeWale, 31 Aug 2026",
+        "pune": {
+          "road_tax_inr": 0,
+          "registration_fee_inr": 0,
+          "rto_and_other_charges_inr": 1178,
+          "insurance_estimate_low_inr": 4412,
+          "insurance_estimate_high_inr": 6559,
+          "on_road_estimate_low_inr": 124840,
+          "on_road_estimate_mid_inr": 125914,
+          "on_road_estimate_high_inr": 126987,
+          "on_road_estimate_display": "Rs 125,914 (Rs 124,840 - Rs 126,987)",
+          "is_estimate": true
+        }
+      }
+    },
+    {
+      "id": "iqube-3-1-kwh",
+      "name": "iQube 3.1 kWh",
+      "trim": "iQube",
+      "position": 2,
+      "image": "images/iqube-3-1-kwh.png",
+      "highlights": {
+        "battery_kwh": 3.1,
+        "idc_range_km": 123,
+        "top_speed_kmph": 82
+      },
+      "battery": {
+        "rated_capacity_kwh": 3.1,
+        "certified_capacity_kwh": 2.7,
+        "charger_type": "Portable Charger",
+        "charging_time_0_80_soc": "4 h 03 m",
+        "charging_time_0_80_minutes": 243,
+        "battery_type": "Lithium ion",
+        "rated_voltage_v": 52,
+        "safety": "BMS controlled",
+        "ip_rating": "IP67",
+        "charger_output_w": 950,
+        "charger_included_in_price": true,
+        "spike_protection": true,
+        "charging_time_0_80_minutes_leaflet": 243,
+        "certified_capacity_kwh_official": 2.7,
+        "source_disagreement": false
+      },
+      "performance": {
+        "idc_range_km": 123,
+        "top_speed_kmph": 82,
+        "acceleration_0_40_kmph_s": 4.2,
+        "peak_power_kw": 4.4,
+        "riding_modes": [
+          "Eco",
+          "Power"
+        ],
+        "motor_type": "BLDC hub mounted",
+        "rated_power_kw": 3.0,
+        "peak_torque_nm": 140,
+        "rated_torque_nm": 33,
+        "gradeability_deg": 10,
+        "water_wading_limit_mm": 150,
+        "eco_mode_top_speed_kmph": 47,
+        "estimated_real_world_range_km": 102,
+        "real_world_range_basis": "83% of IDC, derived from one owner-reported datapoint; indicative only"
+      },
+      "chassis": {
+        "front_brake": "220 mm Disc",
+        "rear_brake": "130 mm Drum",
+        "brakes_as_printed": [
+          "130 mm Drum",
+          "220 mm Disc"
+        ],
+        "front_suspension": "Telescopic",
+        "rear_suspension": "Hydraulic twin tube shock absorber",
+        "rear_suspension_adjustable": false,
+        "ground_clearance_mm": 157,
+        "tyre_type": "Tubeless",
+        "storage_litres": 32.0,
+        "kerb_weight_kg": 116.8,
+        "frame_type": "Tubular Structure",
+        "seat_height_mm": 770,
+        "wheelbase_mm": 1301,
+        "length_mm": 1805,
+        "width_mm": 645,
+        "height_mm": 1140,
+        "braking_system": "SBT (synchronised braking)",
+        "tyre_size_front": "90/90-12",
+        "tyre_size_rear": "90/90-12",
+        "wheel_size_inch": 12,
+        "carrying_capacity_kg": 130
+      },
+      "display": {
+        "cluster_size_cm": 12.7,
+        "cluster_size_inches": 5.0,
+        "cluster_type": "TFT Display",
+        "touchscreen": false,
+        "cluster_size_cm_official": 12.7,
+        "resolution": "800 x 480",
+        "brightness_lux": 1000,
+        "day_night_mode": "Automatic",
+        "ota_updates": [
+          "Telematics",
+          "MCU",
+          "VCU",
+          "BMS",
+          "Speedometer"
+        ]
+      },
+      "lighting": {
+        "headlamp_and_taillamp": "LED integrated with TSL",
+        "parking_assist": "Reverse / Forward",
+        "number_plate_lamp": "LED",
+        "signature_position_lamp": "LED",
+        "illuminating_logo": "LED"
+      },
+      "colours": [
+        {
+          "name": "Titanium Grey",
+          "slug": "titanium-grey",
+          "swatch_hex_approx": "#9399A6"
+        },
+        {
+          "name": "Pearl White",
+          "slug": "pearl-white",
+          "swatch_hex_approx": "#E8E9ED"
+        },
+        {
+          "name": "Starlight Blue-Beige",
+          "slug": "starlight-blue-beige",
+          "swatch_hex_approx": "#556376"
+        },
+        {
+          "name": "Copper Bronze-Beige",
+          "slug": "copper-bronze-beige",
+          "swatch_hex_approx": null
+        }
+      ],
+      "features": {
+        "water_and_dust_resistance": true,
+        "regenerative_braking": true,
+        "hmi_joystick": false,
+        "voice_assist": false,
+        "bluetooth_connectivity": true,
+        "turn_by_turn_navigation": true,
+        "call_and_sms_alerts": true,
+        "distance_to_empty": true,
+        "music_control": false,
+        "tpms": false,
+        "geofencing": true,
+        "anti_theft_alert": true,
+        "usb_mobile_charger": true,
+        "crash_and_fall_alert": true,
+        "hill_hold": true,
+        "incognito_mode": false,
+        "flip_key_with_led": false,
+        "side_stand_indication": true,
+        "parking_brake_lever": true,
+        "pleasant_horn_tone": true,
+        "live_indicator_status": true
+      },
+      "feature_count": 15,
+      "ownership": {
+        "battery_warranty": "3 years or 50,000 km",
+        "motor_warranty": "3 years",
+        "baas_available": true,
+        "baas_max_inr": 59999,
+        "running_cost_per_km_inr": 0.2
+      },
+      "pricing": {
+        "currency": "INR",
+        "ex_showroom_inr": 138510,
+        "ex_showroom_basis": "Average across India, BikeWale, 31 Aug 2026",
+        "pune": {
+          "road_tax_inr": 0,
+          "registration_fee_inr": 0,
+          "rto_and_other_charges_inr": 1178,
+          "insurance_estimate_low_inr": 5125,
+          "insurance_estimate_high_inr": 7618,
+          "on_road_estimate_low_inr": 144813,
+          "on_road_estimate_mid_inr": 146060,
+          "on_road_estimate_high_inr": 147306,
+          "on_road_estimate_display": "Rs 146,060 (Rs 144,813 - Rs 147,306)",
+          "is_estimate": true
+        }
+      }
+    },
+    {
+      "id": "iqube-3-5-kwh",
+      "name": "iQube 3.5 kWh",
+      "trim": "iQube",
+      "position": 3,
+      "image": "images/iqube-3-5-kwh.png",
+      "highlights": {
+        "battery_kwh": 3.5,
+        "idc_range_km": 145,
+        "top_speed_kmph": 82
+      },
+      "battery": {
+        "rated_capacity_kwh": 3.5,
+        "certified_capacity_kwh": 3.2,
+        "charger_type": "Portable Charger",
+        "charging_time_0_80_soc": "4 h 30 m",
+        "charging_time_0_80_minutes": 270,
+        "battery_type": "Lithium ion",
+        "rated_voltage_v": 52,
+        "safety": "BMS controlled",
+        "ip_rating": "IP67",
+        "charger_output_w": 950,
+        "charger_included_in_price": true,
+        "spike_protection": true,
+        "charging_time_0_80_minutes_leaflet": 280,
+        "certified_capacity_kwh_official": 3.2,
+        "source_disagreement": true
+      },
+      "performance": {
+        "idc_range_km": 145,
+        "top_speed_kmph": 82,
+        "acceleration_0_40_kmph_s": 4.2,
+        "peak_power_kw": 4.4,
+        "riding_modes": [
+          "Eco",
+          "Power"
+        ],
+        "motor_type": "BLDC hub mounted",
+        "rated_power_kw": 3.0,
+        "peak_torque_nm": 140,
+        "rated_torque_nm": 33,
+        "gradeability_deg": 10,
+        "water_wading_limit_mm": 150,
+        "eco_mode_top_speed_kmph": 47,
+        "estimated_real_world_range_km": 120,
+        "real_world_range_basis": "83% of IDC, derived from one owner-reported datapoint; indicative only"
+      },
+      "chassis": {
+        "front_brake": "220 mm Disc",
+        "rear_brake": "130 mm Drum",
+        "brakes_as_printed": [
+          "130 mm Drum",
+          "220 mm Disc"
+        ],
+        "front_suspension": "Telescopic",
+        "rear_suspension": "Hydraulic twin tube shock absorber",
+        "rear_suspension_adjustable": false,
+        "ground_clearance_mm": 157,
+        "tyre_type": "Tubeless",
+        "storage_litres": 32.0,
+        "kerb_weight_kg": 119.1,
+        "frame_type": "Tubular Structure",
+        "seat_height_mm": 770,
+        "wheelbase_mm": 1301,
+        "length_mm": 1805,
+        "width_mm": 645,
+        "height_mm": 1140,
+        "braking_system": "SBT (synchronised braking)",
+        "tyre_size_front": "90/90-12",
+        "tyre_size_rear": "90/90-12",
+        "wheel_size_inch": 12,
+        "carrying_capacity_kg": 130
+      },
+      "display": {
+        "cluster_size_cm": 12.77,
+        "cluster_size_inches": 5.0,
+        "cluster_type": "TFT Display",
+        "touchscreen": false,
+        "cluster_size_cm_official": 12.7,
+        "resolution": "800 x 480",
+        "brightness_lux": 1000,
+        "day_night_mode": "Automatic",
+        "ota_updates": [
+          "Telematics",
+          "MCU",
+          "VCU",
+          "BMS"
+        ]
+      },
+      "lighting": {
+        "headlamp_and_taillamp": "LED integrated with TSL",
+        "parking_assist": "Reverse / Forward",
+        "number_plate_lamp": "LED",
+        "signature_position_lamp": "LED",
+        "illuminating_logo": "LED"
+      },
+      "colours": [
+        {
+          "name": "Pearl White",
+          "slug": "pearl-white",
+          "swatch_hex_approx": "#E8E9ED"
+        },
+        {
+          "name": "Titanium Grey",
+          "slug": "titanium-grey",
+          "swatch_hex_approx": "#9399A6"
+        },
+        {
+          "name": "Walnut Brown",
+          "slug": "walnut-brown",
+          "swatch_hex_approx": "#725E5C"
+        },
+        {
+          "name": "Starlight Blue-Beige",
+          "slug": "starlight-blue-beige",
+          "swatch_hex_approx": "#556376"
+        },
+        {
+          "name": "Copper Bronze-Beige",
+          "slug": "copper-bronze-beige",
+          "swatch_hex_approx": null
+        }
+      ],
+      "features": {
+        "water_and_dust_resistance": true,
+        "regenerative_braking": true,
+        "hmi_joystick": false,
+        "voice_assist": false,
+        "bluetooth_connectivity": true,
+        "turn_by_turn_navigation": true,
+        "call_and_sms_alerts": true,
+        "distance_to_empty": true,
+        "music_control": false,
+        "tpms": false,
+        "geofencing": true,
+        "anti_theft_alert": true,
+        "usb_mobile_charger": true,
+        "crash_and_fall_alert": true,
+        "hill_hold": false,
+        "incognito_mode": false,
+        "flip_key_with_led": false,
+        "side_stand_indication": true,
+        "parking_brake_lever": true,
+        "pleasant_horn_tone": true,
+        "live_indicator_status": true
+      },
+      "feature_count": 14,
+      "ownership": {
+        "battery_warranty": "3 years or 50,000 km",
+        "motor_warranty": "3 years",
+        "baas_available": true,
+        "baas_max_inr": 59999,
+        "running_cost_per_km_inr": 0.2
+      },
+      "pricing": {
+        "currency": "INR",
+        "ex_showroom_inr": 145653,
+        "ex_showroom_basis": "Average across India, BikeWale, 31 Aug 2026",
+        "pune": {
+          "road_tax_inr": 0,
+          "registration_fee_inr": 0,
+          "rto_and_other_charges_inr": 1178,
+          "insurance_estimate_low_inr": 5389,
+          "insurance_estimate_high_inr": 8011,
+          "on_road_estimate_low_inr": 152220,
+          "on_road_estimate_mid_inr": 153531,
+          "on_road_estimate_high_inr": 154842,
+          "on_road_estimate_display": "Rs 153,531 (Rs 152,220 - Rs 154,842)",
+          "is_estimate": true
+        }
+      }
+    },
+    {
+      "id": "iqube-millionr-edition",
+      "name": "iQube MillionR Edition",
+      "trim": "MillionR Edition",
+      "position": 4,
+      "image": "images/iqube-millionr-edition.png",
+      "highlights": {
+        "battery_kwh": 3.5,
+        "idc_range_km": 145,
+        "top_speed_kmph": 82
+      },
+      "battery": {
+        "rated_capacity_kwh": 3.5,
+        "certified_capacity_kwh": 3.2,
+        "charger_type": "Portable Charger",
+        "charging_time_0_80_soc": "4 h 30 m",
+        "charging_time_0_80_minutes": 270,
+        "battery_type": "Lithium ion",
+        "rated_voltage_v": 52,
+        "safety": "BMS controlled",
+        "ip_rating": "IP67",
+        "charger_output_w": 950,
+        "charger_included_in_price": true,
+        "spike_protection": true,
+        "charging_time_0_80_minutes_leaflet": 280,
+        "certified_capacity_kwh_official": 3.2,
+        "source_disagreement": true
+      },
+      "performance": {
+        "idc_range_km": 145,
+        "top_speed_kmph": 82,
+        "acceleration_0_40_kmph_s": 4.2,
+        "peak_power_kw": 4.4,
+        "riding_modes": [
+          "Eco",
+          "Power"
+        ],
+        "motor_type": "BLDC hub mounted",
+        "rated_power_kw": 3.0,
+        "peak_torque_nm": 140,
+        "rated_torque_nm": 33,
+        "gradeability_deg": 10,
+        "water_wading_limit_mm": 150,
+        "eco_mode_top_speed_kmph": 47,
+        "estimated_real_world_range_km": 120,
+        "real_world_range_basis": "83% of IDC, derived from one owner-reported datapoint; indicative only"
+      },
+      "chassis": {
+        "front_brake": "220 mm Disc",
+        "rear_brake": "130 mm Drum",
+        "brakes_as_printed": [
+          "130 mm Drum",
+          "220 mm Disc"
+        ],
+        "front_suspension": "Telescopic",
+        "rear_suspension": "Hydraulic twin tube shock absorber",
+        "rear_suspension_adjustable": false,
+        "ground_clearance_mm": 157,
+        "tyre_type": "Tubeless",
+        "storage_litres": 35.5,
+        "kerb_weight_kg": 119.1,
+        "frame_type": "Tubular Structure",
+        "seat_height_mm": 770,
+        "wheelbase_mm": 1301,
+        "length_mm": 1805,
+        "width_mm": 645,
+        "height_mm": 1140,
+        "braking_system": "SBT (synchronised braking)",
+        "tyre_size_front": "90/90-12",
+        "tyre_size_rear": "90/90-12",
+        "wheel_size_inch": 12,
+        "carrying_capacity_kg": 130
+      },
+      "display": {
+        "cluster_size_cm": 12.77,
+        "cluster_size_inches": 5.0,
+        "cluster_type": "TFT Display",
+        "touchscreen": false,
+        "cluster_size_cm_official": 12.7,
+        "resolution": "800 x 480",
+        "brightness_lux": 1000,
+        "day_night_mode": "Automatic",
+        "ota_updates": [
+          "Telematics",
+          "MCU",
+          "VCU",
+          "BMS"
+        ]
+      },
+      "lighting": {
+        "headlamp_and_taillamp": "LED integrated with TSL",
+        "parking_assist": "Reverse / Forward",
+        "number_plate_lamp": "LED",
+        "signature_position_lamp": "LED",
+        "illuminating_logo": "LED"
+      },
+      "colours": [
+        {
+          "name": "Aurora Green",
+          "slug": "aurora-green",
+          "swatch_hex_approx": "#3B93A6"
+        }
+      ],
+      "features": {
+        "water_and_dust_resistance": true,
+        "regenerative_braking": true,
+        "hmi_joystick": false,
+        "voice_assist": false,
+        "bluetooth_connectivity": true,
+        "turn_by_turn_navigation": true,
+        "call_and_sms_alerts": true,
+        "distance_to_empty": true,
+        "music_control": false,
+        "tpms": false,
+        "geofencing": true,
+        "anti_theft_alert": true,
+        "usb_mobile_charger": true,
+        "crash_and_fall_alert": true,
+        "hill_hold": false,
+        "incognito_mode": false,
+        "flip_key_with_led": false,
+        "side_stand_indication": true,
+        "parking_brake_lever": true,
+        "pleasant_horn_tone": true,
+        "live_indicator_status": true
+      },
+      "feature_count": 14,
+      "ownership": {
+        "battery_warranty": "3 years or 50,000 km",
+        "motor_warranty": "3 years",
+        "baas_available": true,
+        "baas_max_inr": 59999,
+        "running_cost_per_km_inr": 0.2
+      },
+      "pricing": {
+        "currency": "INR",
+        "ex_showroom_inr": 140138,
+        "ex_showroom_basis": "Average across India, BikeWale, 31 Aug 2026",
+        "pune": {
+          "road_tax_inr": 0,
+          "registration_fee_inr": 0,
+          "rto_and_other_charges_inr": 1178,
+          "insurance_estimate_low_inr": 5185,
+          "insurance_estimate_high_inr": 7708,
+          "on_road_estimate_low_inr": 146501,
+          "on_road_estimate_mid_inr": 147762,
+          "on_road_estimate_high_inr": 149024,
+          "on_road_estimate_display": "Rs 147,762 (Rs 146,501 - Rs 149,024)",
+          "is_estimate": true
+        }
+      }
+    },
+    {
+      "id": "iqube-s-4-7-kwh",
+      "name": "iQube S 4.7 kWh",
+      "trim": "iQube S",
+      "position": 5,
+      "image": "images/iqube-s-4-7-kwh.png",
+      "highlights": {
+        "battery_kwh": 4.7,
+        "idc_range_km": 175,
+        "top_speed_kmph": 82
+      },
+      "battery": {
+        "rated_capacity_kwh": 4.7,
+        "certified_capacity_kwh": 4.1,
+        "charger_type": "Portable Charger",
+        "charging_time_0_80_soc": "4 h",
+        "charging_time_0_80_minutes": 240,
+        "battery_type": "Lithium ion",
+        "rated_voltage_v": 52,
+        "safety": "BMS controlled",
+        "ip_rating": "IP67",
+        "charger_output_w": 950,
+        "charger_included_in_price": true,
+        "spike_protection": true,
+        "charging_time_0_80_minutes_leaflet": 240,
+        "certified_capacity_kwh_official": 4.1,
+        "source_disagreement": false
+      },
+      "performance": {
+        "idc_range_km": 175,
+        "top_speed_kmph": 82,
+        "acceleration_0_40_kmph_s": 4.3,
+        "peak_power_kw": 4.4,
+        "riding_modes": [
+          "Eco",
+          "Power"
+        ],
+        "motor_type": "BLDC hub mounted",
+        "rated_power_kw": 3.0,
+        "peak_torque_nm": 140,
+        "rated_torque_nm": 33,
+        "gradeability_deg": 10,
+        "water_wading_limit_mm": 150,
+        "eco_mode_top_speed_kmph": 47,
+        "estimated_real_world_range_km": 145,
+        "real_world_range_basis": "83% of IDC, derived from one owner-reported datapoint; indicative only"
+      },
+      "chassis": {
+        "front_brake": "220 mm Disc",
+        "rear_brake": "130 mm Drum",
+        "brakes_as_printed": [
+          "130 mm Drum",
+          "220 mm Disc"
+        ],
+        "front_suspension": "Telescopic",
+        "rear_suspension": "Adjustable, Hydraulic twin tube shock absorber",
+        "rear_suspension_adjustable": true,
+        "ground_clearance_mm": 157,
+        "tyre_type": "Tubeless",
+        "storage_litres": 32.0,
+        "kerb_weight_kg": 128.8,
+        "frame_type": "Tubular Structure",
+        "seat_height_mm": 770,
+        "wheelbase_mm": 1301,
+        "length_mm": 1805,
+        "width_mm": 645,
+        "height_mm": 1140,
+        "braking_system": "SBT (synchronised braking)",
+        "tyre_size_front": "90/90-12",
+        "tyre_size_rear": "90/90-12",
+        "wheel_size_inch": 12,
+        "carrying_capacity_kg": 130
+      },
+      "display": {
+        "cluster_size_cm": 17.78,
+        "cluster_size_inches": 7.0,
+        "cluster_type": "TFT Display",
+        "touchscreen": false,
+        "cluster_size_cm_official": 17.78,
+        "resolution": "800 x 480",
+        "brightness_lux": 1000,
+        "day_night_mode": "Manual / Automatic",
+        "ota_updates": [
+          "Telematics",
+          "MCU",
+          "VCU",
+          "BMS",
+          "Speedometer"
+        ]
+      },
+      "lighting": {
+        "headlamp_and_taillamp": "LED integrated with TSL",
+        "parking_assist": "Reverse / Forward",
+        "number_plate_lamp": "LED",
+        "signature_position_lamp": "LED",
+        "illuminating_logo": "LED"
+      },
+      "colours": [
+        {
+          "name": "Titanium Grey Matte",
+          "slug": "titanium-grey-matte",
+          "swatch_hex_approx": "#575C6B"
+        },
+        {
+          "name": "Magnificence Purple-Beige",
+          "slug": "magnificence-purple-beige",
+          "swatch_hex_approx": null
+        },
+        {
+          "name": "Harlequin Blue-Beige",
+          "slug": "harlequin-blue-beige",
+          "swatch_hex_approx": null
+        }
+      ],
+      "features": {
+        "water_and_dust_resistance": true,
+        "regenerative_braking": true,
+        "hmi_joystick": true,
+        "voice_assist": true,
+        "bluetooth_connectivity": true,
+        "turn_by_turn_navigation": true,
+        "call_and_sms_alerts": true,
+        "distance_to_empty": true,
+        "music_control": true,
+        "tpms": false,
+        "geofencing": true,
+        "anti_theft_alert": true,
+        "usb_mobile_charger": true,
+        "crash_and_fall_alert": true,
+        "hill_hold": false,
+        "incognito_mode": true,
+        "flip_key_with_led": true,
+        "side_stand_indication": true,
+        "parking_brake_lever": true,
+        "pleasant_horn_tone": true,
+        "live_indicator_status": true
+      },
+      "feature_count": 19,
+      "ownership": {
+        "battery_warranty": "3 years or 50,000 km",
+        "motor_warranty": "3 years",
+        "baas_available": true,
+        "baas_max_inr": 59999,
+        "running_cost_per_km_inr": 0.2
+      },
+      "pricing": {
+        "currency": "INR",
+        "ex_showroom_inr": 165353,
+        "ex_showroom_basis": "Average across India, BikeWale, 31 Aug 2026",
+        "pune": {
+          "road_tax_inr": 0,
+          "registration_fee_inr": 0,
+          "rto_and_other_charges_inr": 1178,
+          "insurance_estimate_low_inr": 6118,
+          "insurance_estimate_high_inr": 9094,
+          "on_road_estimate_low_inr": 172649,
+          "on_road_estimate_mid_inr": 174137,
+          "on_road_estimate_high_inr": 175625,
+          "on_road_estimate_display": "Rs 174,137 (Rs 172,649 - Rs 175,625)",
+          "is_estimate": true
+        }
+      }
+    },
+    {
+      "id": "iqube-st-5-3-kwh",
+      "name": "iQube ST 5.3 kWh",
+      "trim": "iQube ST",
+      "position": 6,
+      "image": "images/iqube-st-5-3-kwh.png",
+      "highlights": {
+        "battery_kwh": 5.3,
+        "idc_range_km": 212,
+        "top_speed_kmph": 82
+      },
+      "battery": {
+        "rated_capacity_kwh": 5.3,
+        "certified_capacity_kwh": 4.8,
+        "charger_type": "Portable Charger",
+        "charging_time_0_80_soc": "4 h 18 m",
+        "charging_time_0_80_minutes": 258,
+        "battery_type": "Lithium ion",
+        "rated_voltage_v": 52,
+        "safety": "BMS controlled",
+        "ip_rating": "IP67",
+        "charger_output_w": 950,
+        "charger_included_in_price": true,
+        "spike_protection": true,
+        "charging_time_0_80_minutes_leaflet": 270,
+        "certified_capacity_kwh_official": null,
+        "source_disagreement": true
+      },
+      "performance": {
+        "idc_range_km": 212,
+        "top_speed_kmph": 82,
+        "acceleration_0_40_kmph_s": 4.5,
+        "peak_power_kw": 4.4,
+        "riding_modes": [
+          "Eco",
+          "Power"
+        ],
+        "motor_type": "BLDC hub mounted",
+        "rated_power_kw": 3.0,
+        "peak_torque_nm": 140,
+        "rated_torque_nm": 33,
+        "gradeability_deg": 10,
+        "water_wading_limit_mm": 150,
+        "eco_mode_top_speed_kmph": 47,
+        "estimated_real_world_range_km": 176,
+        "real_world_range_basis": "83% of IDC, derived from one owner-reported datapoint; indicative only"
+      },
+      "chassis": {
+        "front_brake": "220 mm Disc",
+        "rear_brake": "130 mm Drum",
+        "brakes_as_printed": [
+          "130 mm Drum",
+          "220 mm Disc"
+        ],
+        "front_suspension": "Telescopic",
+        "rear_suspension": "Adjustable, Hydraulic twin tube shock absorber",
+        "rear_suspension_adjustable": true,
+        "ground_clearance_mm": 157,
+        "tyre_type": "Tubeless",
+        "storage_litres": 32.0,
+        "kerb_weight_kg": 132.0,
+        "frame_type": "Tubular Structure",
+        "seat_height_mm": 770,
+        "wheelbase_mm": 1301,
+        "length_mm": 1805,
+        "width_mm": 645,
+        "height_mm": 1140,
+        "braking_system": "SBT (synchronised braking)",
+        "tyre_size_front": "90/90-12",
+        "tyre_size_rear": "90/90-12",
+        "wheel_size_inch": 12,
+        "carrying_capacity_kg": 130
+      },
+      "display": {
+        "cluster_size_cm": 17.78,
+        "cluster_size_inches": 7.0,
+        "cluster_type": "TFT Touch Display",
+        "touchscreen": true,
+        "cluster_size_cm_official": 17.78,
+        "resolution": "800 x 480",
+        "brightness_lux": 1000,
+        "day_night_mode": "Manual / Automatic",
+        "ota_updates": [
+          "Telematics",
+          "MCU",
+          "VCU",
+          "Cluster",
+          "BMS"
+        ]
+      },
+      "lighting": {
+        "headlamp_and_taillamp": "LED integrated with TSL",
+        "parking_assist": "Reverse / Forward",
+        "number_plate_lamp": "LED",
+        "signature_position_lamp": "LED",
+        "illuminating_logo": "LED"
+      },
+      "colours": [
+        {
+          "name": "Titanium Grey Matte",
+          "slug": "titanium-grey-matte",
+          "swatch_hex_approx": "#575C6B"
+        },
+        {
+          "name": "Starlight Blue-Beige",
+          "slug": "starlight-blue-beige",
+          "swatch_hex_approx": "#556376"
+        },
+        {
+          "name": "Copper Bronze-Beige",
+          "slug": "copper-bronze-beige",
+          "swatch_hex_approx": null
+        }
+      ],
+      "features": {
+        "water_and_dust_resistance": true,
+        "regenerative_braking": true,
+        "hmi_joystick": true,
+        "voice_assist": true,
+        "bluetooth_connectivity": true,
+        "turn_by_turn_navigation": true,
+        "call_and_sms_alerts": true,
+        "distance_to_empty": true,
+        "music_control": true,
+        "tpms": true,
+        "geofencing": true,
+        "anti_theft_alert": true,
+        "usb_mobile_charger": true,
+        "crash_and_fall_alert": true,
+        "hill_hold": false,
+        "incognito_mode": true,
+        "flip_key_with_led": true,
+        "side_stand_indication": true,
+        "parking_brake_lever": true,
+        "pleasant_horn_tone": true,
+        "live_indicator_status": true
+      },
+      "feature_count": 20,
+      "ownership": {
+        "battery_warranty": "3 years or 50,000 km",
+        "motor_warranty": "3 years",
+        "baas_available": true,
+        "baas_max_inr": 59999,
+        "running_cost_per_km_inr": 0.2
+      },
+      "pricing": {
+        "currency": "INR",
+        "ex_showroom_inr": 175599,
+        "ex_showroom_basis": "Average across India, BikeWale, 31 Aug 2026",
+        "pune": {
+          "road_tax_inr": 0,
+          "registration_fee_inr": 0,
+          "rto_and_other_charges_inr": 1178,
+          "insurance_estimate_low_inr": 6497,
+          "insurance_estimate_high_inr": 9658,
+          "on_road_estimate_low_inr": 183274,
+          "on_road_estimate_mid_inr": 184854,
+          "on_road_estimate_high_inr": 186435,
+          "on_road_estimate_display": "Rs 184,854 (Rs 183,274 - Rs 186,435)",
+          "is_estimate": true
+        }
+      }
+    }
+  ]
+}
